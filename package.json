@@ -11,7 +11,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.3.4",
     "@astrojs/react": "^4.3.0",
-    "@tailwindcss/vite": "^4.1.11",
+    "@tailwindcss/vite": "^4.1.12",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "astro": "^5.12.9",
@@ -19,7 +19,7 @@
     "framer-motion": "^12.23.12",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "tailwindcss": "^4.1.11",
+    "tailwindcss": "^4.1.12",
     "zustand": "^5.0.7"
   }
 }

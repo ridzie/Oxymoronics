@@ -11,3 +11,4 @@
   75% { transform: translate3d(0.5%, -1%, 0) rotate(-0.5deg); }
 }
 .animate-wobble { animation: wobble 180ms ease-in-out both; }
+.group:hover .wobble-on-hover { animation: wobble 180ms ease-in-out both; }

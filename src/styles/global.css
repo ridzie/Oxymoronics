@@ -3,51 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* motion: parameterized wobble */
-.wobble-on-hover{
-  /* amplitude */
-  --w-x: 1%;   /* left-right */
-  --w-xn: -1%;
-  --w-y1: -2%; /* up */
-  --w-y2: 1%;  /* down */
-  --w-rot: 1deg;
-  --w-rotn: -1deg;
-  /* timing */
-  --w-dur: 280ms; /* duration */
-  --w-ease: cubic-bezier(.2,.6,.2,1); /* easing */
-  /* pivot */
-  transform-origin: 50% 85%;
-}
-
-/* presets you can stack */
-.wobble-soft{
-  --w-x: .5%; --w-xn: -.5%;
-  --w-y1: -1%; --w-y2: .5%;
-  --w-rot: .5deg; --w-rotn: -.5deg;
-}
-.wobble-hard{
-  --w-x: 2%; --w-xn: -2%;
-  --w-y1: -3%; --w-y2: 2%;
-  --w-rot: 3deg; --w-rotn: -3deg;
-}
-.wobble-slow{ --w-dur: 420ms; }
-.wobble-fast{ --w-dur: 140ms; }
-.wobble-origin-bottom{ transform-origin: 50% 95%; }
-.wobble-origin-center{ transform-origin: 50% 50%; }
-
-.group:hover .wobble-on-hover { animation: wobble var(--w-dur) var(--w-ease) both; }
-
-@keyframes wobble {
-  0%,100% { transform: translate3d(0,0,0) rotate(0deg); }
-  25% { transform: translate3d(var(--w-x), var(--w-y1), 0) rotate(var(--w-rotn)); }
-  50% { transform: translate3d(var(--w-xn), var(--w-y2), 0) rotate(var(--w-rot)); }
-  75% { transform: translate3d(var(--w-x), var(--w-y1), 0) rotate(var(--w-rotn)); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .group:hover .wobble-on-hover { animation: none !important; }
-}
-
 /* drop wobble: simulates a cup released above the table and settling */
 .drop-wobble {
   --drop-rot: 20deg;      /* peak tilt */
@@ -69,10 +24,6 @@
   100% { transform: translate3d(0,0,0) rotate(0deg); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .group:hover .drop-wobble { animation: none !important; }
-}
-
 /* ink: tip on direct hover (no group hover bleed) */
 .tip-on-hover{
   --tip-angle: -45deg;            /* default tip amount; override per element */
@@ -82,5 +33,6 @@
 .tip-on-hover:hover{ transform: rotate(var(--tip-angle)); }
 
 @media (prefers-reduced-motion: reduce){
-  .tip-on-hover:hover{ transform: none !important; }
+  .group:hover .drop-wobble { animation: none !important; }
+  .tip-on-hover:hover { transform: none !important; }
 }

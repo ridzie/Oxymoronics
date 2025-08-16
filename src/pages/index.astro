@@ -19,7 +19,8 @@ import "../styles/global.css"; // ensures Tailwind loads
     <main class="fixed inset-0">
       <!-- diary: top-left -->
       <button
-        class="group absolute z-10 pointer-events-auto focus:outline-none"
+        type="button"
+        class="group absolute z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:rounded"
         style="left:3%; top:-4%; width:25.9%;"
         aria-label="Open diary"
         data-obj="diary"
@@ -28,20 +29,24 @@ import "../styles/global.css"; // ensures Tailwind loads
           src="/assets/cv-v1.png"
           alt="Diary"
           class="block transition-transform duration-150 ease-out will-change-transform group-hover:scale-[1.05] group-hover:-translate-y-[2%]"
+          decoding="async" draggable="false"
         />
       </button>
 
       <!-- charcoal stub right of diary (static) -->
       <img
         src="/assets/coal.png"
-        alt="Charcoal"
+        alt=""
+        aria-hidden="true"
         class="absolute z-10 pointer-events-none"
         style="left:8%; top:1%; width:70%;"
+        decoding="async" draggable="false"
       />
 
       <!-- photo tray: lower-left -->
       <button
-        class="group absolute z-10 pointer-events-auto focus:outline-none"
+        type="button"
+        class="group absolute z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:rounded"
         style="left:5%; top:43%; width:22%;"
         aria-label="Open projects"
         data-obj="projects"
@@ -50,12 +55,14 @@ import "../styles/global.css"; // ensures Tailwind loads
           src="/assets/project-tray.png"
           alt="Project tray"
           class="block transition-transform duration-150 ease-out will-change-transform group-hover:scale-[1.05] group-hover:[filter:drop-shadow(0_8px_12px_rgba(0,0,0,0.25))]"
+          decoding="async" draggable="false"
         />
       </button>
 
       <!-- scrolls: top-right cluster -->
       <button
-        class="group absolute z-10 pointer-events-auto focus:outline-none"
+        type="button"
+        class="group absolute z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:rounded"
         style="left:71%; top:5%; width:22%;"
         aria-label="Open blog"
         data-obj="blog"
@@ -64,19 +71,23 @@ import "../styles/global.css"; // ensures Tailwind loads
           src="/assets/scrolls.png"
           alt="Scrolls"
           class="block transition-transform duration-150 ease-out will-change-transform group-hover:scale-[1.05] group-hover:[filter:drop-shadow(0_8px_12px_rgba(0,0,0,0.25))]"
+          decoding="async" draggable="false"
         />
       </button>
 
       <!-- pen and ink: mid-right above cup (pen static) -->
       <img
         src="/assets/pen.png"
-        alt="Pen"
+        alt=""
+        aria-hidden="true"
         class="absolute z-10 pointer-events-none"
         style="left:82%; top:42%; width:12%; transform: rotate(30deg); transform-origin:center;"
+        decoding="async" draggable="false"
       />
 
       <button
-        class="group absolute z-10 pointer-events-auto focus:outline-none"
+        type="button"
+        class="group absolute z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:rounded"
         style="left:50.3%; top:2%; width:10.9%;"
         aria-label="Ink bottle"
         data-obj="ink"
@@ -86,12 +97,14 @@ import "../styles/global.css"; // ensures Tailwind loads
           alt="Ink bottle"
           class="block tip-on-hover"
           style="--tip-angle:30deg; transform-origin:90% 92%;"
+          decoding="async" draggable="false"
         />
       </button>
 
       <!-- cup: bottom-right -->
       <button
-        class="group absolute z-10 pointer-events-auto focus:outline-none"
+        type="button"
+        class="group absolute z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:rounded"
         style="left:80%; top:65%; width:12%;"
         aria-label="Coffee cup"
         data-obj="cup"
@@ -101,6 +114,7 @@ import "../styles/global.css"; // ensures Tailwind loads
           alt="Cup"
           class="block will-change-transform drop-wobble"
           style="--drop-rot:7deg; --drop-lift:2.5%; --drop-dur:950ms;"
+          decoding="async" draggable="false"
         />
       </button>
     </main>

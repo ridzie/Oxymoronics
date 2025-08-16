@@ -3,12 +3,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* reusable hover motion */
+/* motion: parameterized wobble */
+.wobble-on-hover{
+  /* amplitude */
+  --w-x: 1%;   /* left-right */
+  --w-xn: -1%;
+  --w-y1: -2%; /* up */
+  --w-y2: 1%;  /* down */
+  --w-rot: 1deg;
+  --w-rotn: -1deg;
+  /* timing */
+  --w-dur: 280ms; /* duration */
+  --w-ease: cubic-bezier(.2,.6,.2,1); /* easing */
+  /* pivot */
+  transform-origin: 50% 85%;
+}
+
+/* presets you can stack */
+.wobble-soft{
+  --w-x: .5%; --w-xn: -.5%;
+  --w-y1: -1%; --w-y2: .5%;
+  --w-rot: .5deg; --w-rotn: -.5deg;
+}
+.wobble-hard{
+  --w-x: 2%; --w-xn: -2%;
+  --w-y1: -3%; --w-y2: 2%;
+  --w-rot: 3deg; --w-rotn: -3deg;
+}
+.wobble-slow{ --w-dur: 420ms; }
+.wobble-fast{ --w-dur: 140ms; }
+.wobble-origin-bottom{ transform-origin: 50% 95%; }
+.wobble-origin-center{ transform-origin: 50% 50%; }
+
+.group:hover .wobble-on-hover { animation: wobble var(--w-dur) var(--w-ease) both; }
+
 @keyframes wobble {
   0%,100% { transform: translate3d(0,0,0) rotate(0deg); }
-  25% { transform: translate3d(1%, -2%, 0) rotate(-1deg); }
-  50% { transform: translate3d(-1%, 1%, 0) rotate(1deg); }
-  75% { transform: translate3d(0.5%, -1%, 0) rotate(-0.5deg); }
+  25% { transform: translate3d(var(--w-x), var(--w-y1), 0) rotate(var(--w-rotn)); }
+  50% { transform: translate3d(var(--w-xn), var(--w-y2), 0) rotate(var(--w-rot)); }
+  75% { transform: translate3d(var(--w-x), var(--w-y1), 0) rotate(var(--w-rotn)); }
 }
-.animate-wobble { animation: wobble 180ms ease-in-out both; }
-.group:hover .wobble-on-hover { animation: wobble 180ms ease-in-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .wobble-on-hover { animation: none !important; }
+}
+
+/* drop wobble: simulates a cup released above the table and settling */
+.drop-wobble {
+  --drop-rot: 8deg;      /* peak tilt */
+  --drop-lift: 3%;       /* initial vertical lift above table */
+  --drop-dur: 900ms;     /* total duration */
+  --drop-ease: cubic-bezier(.2,.8,.2,1);
+  transform-origin: 50% 96%;
+}
+.group:hover .drop-wobble { animation: dropWobble var(--drop-dur) var(--drop-ease) both; }
+
+@keyframes dropWobble {
+  0%   { transform: translate3d(0, calc(-1 * var(--drop-lift)), 0) rotate(0deg); }
+  8%   { transform: translate3d(0,0,0) rotate(calc(-1 * var(--drop-rot))); }
+  18%  { transform: translate3d(0,0,0) rotate(calc(var(--drop-rot) * .60)); }
+  30%  { transform: translate3d(0,0,0) rotate(calc(var(--drop-rot) * -.36)); }
+  45%  { transform: translate3d(0,0,0) rotate(calc(var(--drop-rot) * .22)); }
+  60%  { transform: translate3d(0,0,0) rotate(calc(var(--drop-rot) * -.13)); }
+  75%  { transform: translate3d(0,0,0) rotate(calc(var(--drop-rot) * .07)); }
+  100% { transform: translate3d(0,0,0) rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .drop-wobble { animation: none !important; }
+}

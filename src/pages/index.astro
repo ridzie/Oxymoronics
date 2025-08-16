@@ -84,7 +84,8 @@ import "../styles/global.css"; // ensures Tailwind loads
         <img
           src="/assets/ink-bottle.png"
           alt="Ink bottle"
-          class="block transition-transform duration-150 ease-out will-change-transform wobble-on-hover"
+          class="block will-change-transform drop-wobble"
+          style="--drop-rot:5deg; --drop-lift:1.5%; --drop-dur:800ms; transform-origin:50% 92%;"
         />
       </button>
 
@@ -98,7 +99,8 @@ import "../styles/global.css"; // ensures Tailwind loads
         <img
           src="/assets/cup.png"
           alt="Cup"
-          class="block transition-transform duration-150 ease-out will-change-transform wobble-on-hover"
+          class="block will-change-transform drop-wobble"
+          style="--drop-rot:7deg; --drop-lift:2.5%; --drop-dur:950ms;"
         />
       </button>
     </main>

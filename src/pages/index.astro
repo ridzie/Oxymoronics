@@ -1,20 +1,44 @@
 ---
-import "../styles/global.css";
+import "../styles/global.css"; // ensures Tailwind loads
 ---
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oxymoronics</title>
+  </head>
+  <body class="min-h-screen">
+    <!-- Background -->
+    <div id="stage" class="fixed inset-0 -z-10 bg-no-repeat bg-cover" style="background-image:url('/assets/desk-v1.jpg'); background-position:center bottom;"></div>
+
+    <!-- Stage (viewport-relative anchors) -->
+    <main class="fixed inset-0">
+      <!-- diary: top-left -->
+      <img src="/assets/cv-v1.png" alt="Diary"
+           class="absolute z-10" style="left:3%; top:-4%; width:25.9%;" />
+
+      <!-- charcoal stub right of diary -->
+      <img src="/assets/coal.png" alt="Charcoal"
+           class="absolute z-10" style="left:8%; top:1%; width:70%;" />
+
+      <!-- photo tray: lower-left -->
+      <img src="/assets/project-tray.png" alt="Project tray"
+           class="absolute z-10" style="left:5%; top:43%; width:22%;" />
+
+      <!-- scrolls: top-right cluster -->
+      <img src="/assets/scrolls.png" alt="Scrolls"
+           class="absolute z-10" style="left:71%; top:5%; width:22%;" />
+
+      <!-- pen and ink: mid-right above cup -->
+      <img src="/assets/pen.png" alt="Pen"
+           class="absolute z-10" style="left:82%; top:42%; width:12%; transform: rotate(30deg); transform-origin:center;" />
+
+      <img src="/assets/ink-bottle.png" alt="Ink bottle"
+           class="absolute z-10" style="left:77.3%; top:25%; width:20.9%;" />
+
+      <!-- cup: bottom-right -->
+      <img src="/assets/cup.png" alt="Cup"
+           class="absolute z-10" style="left:80%; top:65%; width:12%;" />
+    </main>
+  </body>
 </html>
-<div class="min-h-screen bg-neutral-900 text-neutral-100 p-6">
-  <h1 class="text-3xl font-bold text-sky-400">Tailwind OK</h1>
-  <p class="mt-2 text-sm">Blue text on dark background.</p>
-</div>

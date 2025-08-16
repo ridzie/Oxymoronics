@@ -9,36 +9,98 @@ import "../styles/global.css"; // ensures Tailwind loads
   </head>
   <body class="min-h-screen">
     <!-- Background -->
-    <div id="stage" class="fixed inset-0 -z-10 bg-no-repeat bg-cover" style="background-image:url('/assets/desk-v1.jpg'); background-position:center bottom;"></div>
+    <div
+      id="stage"
+      class="fixed inset-0 -z-10 bg-no-repeat bg-cover [background-position:center_bottom]"
+      style="background-image:url('/assets/desk-v1.jpg');"
+    ></div>
 
     <!-- Stage (viewport-relative anchors) -->
     <main class="fixed inset-0">
       <!-- diary: top-left -->
-      <img src="/assets/cv-v1.png" alt="Diary"
-           class="absolute z-10" style="left:3%; top:-4%; width:25.9%;" />
+      <button
+        class="group absolute z-10 pointer-events-auto focus:outline-none"
+        style="left:3%; top:-4%; width:25.9%;"
+        aria-label="Open diary"
+        data-obj="diary"
+      >
+        <img
+          src="/assets/cv-v1.png"
+          alt="Diary"
+          class="block transition-transform duration-150 ease-out will-change-transform group-hover:scale-[1.05] group-hover:-translate-y-[2%]"
+        />
+      </button>
 
-      <!-- charcoal stub right of diary -->
-      <img src="/assets/coal.png" alt="Charcoal"
-           class="absolute z-10" style="left:8%; top:1%; width:70%;" />
+      <!-- charcoal stub right of diary (static) -->
+      <img
+        src="/assets/coal.png"
+        alt="Charcoal"
+        class="absolute z-10 pointer-events-none"
+        style="left:8%; top:1%; width:70%;"
+      />
 
       <!-- photo tray: lower-left -->
-      <img src="/assets/project-tray.png" alt="Project tray"
-           class="absolute z-10" style="left:5%; top:43%; width:22%;" />
+      <button
+        class="group absolute z-10 pointer-events-auto focus:outline-none"
+        style="left:5%; top:43%; width:22%;"
+        aria-label="Open projects"
+        data-obj="projects"
+      >
+        <img
+          src="/assets/project-tray.png"
+          alt="Project tray"
+          class="block transition-transform duration-150 ease-out will-change-transform group-hover:scale-[1.05] group-hover:[filter:drop-shadow(0_8px_12px_rgba(0,0,0,0.25))]"
+        />
+      </button>
 
       <!-- scrolls: top-right cluster -->
-      <img src="/assets/scrolls.png" alt="Scrolls"
-           class="absolute z-10" style="left:71%; top:5%; width:22%;" />
+      <button
+        class="group absolute z-10 pointer-events-auto focus:outline-none"
+        style="left:71%; top:5%; width:22%;"
+        aria-label="Open blog"
+        data-obj="blog"
+      >
+        <img
+          src="/assets/scrolls.png"
+          alt="Scrolls"
+          class="block transition-transform duration-150 ease-out will-change-transform group-hover:scale-[1.05] group-hover:[filter:drop-shadow(0_8px_12px_rgba(0,0,0,0.25))]"
+        />
+      </button>
 
-      <!-- pen and ink: mid-right above cup -->
-      <img src="/assets/pen.png" alt="Pen"
-           class="absolute z-10" style="left:82%; top:42%; width:12%; transform: rotate(30deg); transform-origin:center;" />
+      <!-- pen and ink: mid-right above cup (pen static) -->
+      <img
+        src="/assets/pen.png"
+        alt="Pen"
+        class="absolute z-10 pointer-events-none"
+        style="left:82%; top:42%; width:12%; transform: rotate(30deg); transform-origin:center;"
+      />
 
-      <img src="/assets/ink-bottle.png" alt="Ink bottle"
-           class="absolute z-10" style="left:77.3%; top:25%; width:20.9%;" />
+      <button
+        class="group absolute z-10 pointer-events-auto focus:outline-none"
+        style="left:77.3%; top:25%; width:20.9%;"
+        aria-label="Ink bottle"
+        data-obj="ink"
+      >
+        <img
+          src="/assets/ink-bottle.png"
+          alt="Ink bottle"
+          class="block transition-transform duration-150 ease-out will-change-transform group-hover:animate-wobble"
+        />
+      </button>
 
       <!-- cup: bottom-right -->
-      <img src="/assets/cup.png" alt="Cup"
-           class="absolute z-10" style="left:80%; top:65%; width:12%;" />
+      <button
+        class="group absolute z-10 pointer-events-auto focus:outline-none"
+        style="left:80%; top:65%; width:12%;"
+        aria-label="Coffee cup"
+        data-obj="cup"
+      >
+        <img
+          src="/assets/cup.png"
+          alt="Cup"
+          class="block transition-transform duration-150 ease-out will-change-transform group-hover:animate-wobble"
+        />
+      </button>
     </main>
   </body>
 </html>

@@ -1,1 +1,13 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* reusable hover motion */
+@keyframes wobble {
+  0%,100% { transform: translate3d(0,0,0) rotate(0deg); }
+  25% { transform: translate3d(1%, -2%, 0) rotate(-1deg); }
+  50% { transform: translate3d(-1%, 1%, 0) rotate(1deg); }
+  75% { transform: translate3d(0.5%, -1%, 0) rotate(-0.5deg); }
+}
+.animate-wobble { animation: wobble 180ms ease-in-out both; }

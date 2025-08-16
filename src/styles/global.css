@@ -50,9 +50,9 @@
 
 /* drop wobble: simulates a cup released above the table and settling */
 .drop-wobble {
-  --drop-rot: 8deg;      /* peak tilt */
-  --drop-lift: 3%;       /* initial vertical lift above table */
-  --drop-dur: 900ms;     /* total duration */
+  --drop-rot: 20deg;      /* peak tilt */
+  --drop-lift: 5%;       /* initial vertical lift above table */
+  --drop-dur: 1000ms;     /* total duration */
   --drop-ease: cubic-bezier(.2,.8,.2,1);
   transform-origin: 50% 96%;
 }
@@ -71,4 +71,16 @@
 
 @media (prefers-reduced-motion: reduce) {
   .group:hover .drop-wobble { animation: none !important; }
+}
+
+/* ink: tip on direct hover (no group hover bleed) */
+.tip-on-hover{
+  --tip-angle: -45deg;            /* default tip amount; override per element */
+  transform-origin: 90% 92%;      /* default: bottom-right; override inline if needed */
+  transition: transform 220ms cubic-bezier(.2,.6,.2,1);
+}
+.tip-on-hover:hover{ transform: rotate(var(--tip-angle)); }
+
+@media (prefers-reduced-motion: reduce){
+  .tip-on-hover:hover{ transform: none !important; }
 }
